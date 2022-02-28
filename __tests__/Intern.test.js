@@ -45,7 +45,7 @@ describe('Intern', () => {
             const intern = new Intern('John', 'jsmith1', 'jsmith1@email.com', 'KU');
 
             expect(intern).toHaveProperty('role');
-            expect(intern.getRole()).toBe('Engineer');
+            expect(intern.getRole()).toBe('Intern');
         });
     });
 
