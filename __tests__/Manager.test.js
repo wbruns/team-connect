@@ -9,6 +9,7 @@ describe('Manager', () => {
             expect(manager.id).toBe('jsmith1');
             expect(manager.email).toBe('jsmith1@email.com');
             expect(manager.role).toBe('Manager');
+            expect(manager.officeNumber).toBe(1);
         });
     });
 
@@ -44,7 +45,7 @@ describe('Manager', () => {
             const manager = new Manager('John', 'jsmith1', 'jsmith1@email.com', 1);
 
             expect(manager).toHaveProperty('role');
-            expect(manager.getRole()).toBe('Employee');
+            expect(manager.getRole()).toBe('Manager');
         });
     });
 
