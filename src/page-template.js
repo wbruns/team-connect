@@ -2,53 +2,61 @@ const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 
-const generateManager = Manager => {
+const generateManager = manager => {
     return `
     <div class="card">
         <div class="card-header">
-            <h2 class="card-title">${Manager.getName()}</h2>
-            <h3 class="card-title">${Manager.getRole()}</h3>
+            <h2 class="card-title">${manager.name}</h2>
+            <h3 class="card-title">${manager.role}</h3>
         </div>
         <div class="card-body">
-            <p class="card-text">${Manager.getId()}</p>
-            <p class="card-text">${Manager.getEmail()}</p>
-            <p class="card-text">${Manager.getOfficeNum()}</p>
+            <p class="card-text">${manager.id}</p>
+            <p class="card-text">${manager.email}</p>
+            <p class="card-text">${manager.officeNumber}</p>
         </div>
     </div>
     `;
 };
 
 const generateEngineer = engineer => {
-    return `
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">${engineer.getName()}</h2>
-            <h3 class="card-title">${engineer.getRole()}</h3>
+    if (engineer) {
+        return `
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">${engineer.name}</h2>
+                <h3 class="card-title">${engineer.role}</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">${engineer.id}</p>
+                <p class="card-text">${engineer.email}</p>
+                <p class="card-text">${engineer.github}</p>
+            </div>
         </div>
-        <div class="card-body">
-            <p class="card-text">${engineer.getId()}</p>
-            <p class="card-text">${engineer.getEmail()}</p>
-            <p class="card-text">${engineer.getGithub()}</p>
-        </div>
-    </div>
-    `;
+        `;
+    } else {
+        return ``;
+    }
 };
 
 const generateIntern = intern => {
-    return `
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">${intern.getName()}</h2>
-            <h3 class="card-title">${intern.getRole()}</h3>
+    if (intern) {
+        return `
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">${intern.name}</h2>
+                <h3 class="card-title">${intern.role}</h3>
+            </div>
+            <div class="card-body">
+                <p class="card-text">${intern.id}</p>
+                <p class="card-text">${intern.email}</p>
+                <p class="card-text">${intern.school}</p>
+            </div>
         </div>
-        <div class="card-body">
-            <p class="card-text">${intern.getId()}</p>
-            <p class="card-text">${intern.getEmail()}</p>
-            <p class="card-text">${intern.getSchool()}</p>
-        </div>
-    </div>
-    `;
-}
+        `;
+    } else {
+        return ``;
+    }  
+};
 
 module.exports = associates => {
     const [ manager, engineer, intern ] = associates;
